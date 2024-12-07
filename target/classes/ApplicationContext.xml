@@ -1,0 +1,35 @@
+<beans xmlns="http://www.springframework.org/schema/beans" 
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+    <!-- Employee Bean with Constructor Injection -->
+    <bean id="employee" class="com.klef.jfsd.exam.Employee">
+        <constructor-arg value="30745" />
+        <constructor-arg value="Murali" />
+        <constructor-arg value="50000.0" />
+        <constructor-arg value="IT" />
+        <constructor-arg>
+            <list>
+                <value>Java</value>
+                <value>Spring</value>
+                <value>SQL</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Instructor Bean -->
+    <bean id="instructor" class="com.klef.jfsd.exam.Instructor" autowire="byType">
+        <property name="InstructorId" value="1" />
+        <property name="Name" value="Dr. Senthil" />
+        <property name="Email" value="drsenthil@university.com" />
+        <property name="PhoneNumber" value="9876543210" />
+    </bean>
+
+    <!-- Course Bean -->
+    <bean id="course" class="com.klef.jfsd.exam.Course" autowire="byName">
+        <property name="CourseId" value="03" />
+        <property name="CourseName" value="Advanced Java" />
+        <property name="Credits" value="3" />
+    </bean>
+</beans>
